@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:yekola/const/style.dart';
 
-class DateTimeWidget extends StatelessWidget {
+class DateTimeWidget extends ConsumerWidget {
   const DateTimeWidget({
     super.key,
     required this.title,
     required this.value,
     required this.icon,
+    required this.ontap,
   });
   final String title;
   final String value;
   final IconData icon;
+  final VoidCallback ontap;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
+      onTap: () => ontap(),
       child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

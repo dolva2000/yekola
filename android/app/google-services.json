@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "126529753447",
+    "project_id": "todoapp-a5dc8",
+    "storage_bucket": "todoapp-a5dc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126529753447:android:8cf1c879adc55a3e4d9fc2",
+        "android_client_info": {
+          "package_name": "com.example.yekola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126529753447-h3khlel1ecf5gn2e0gfb1cp7gjbag7nn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWbuwU_lLnmYzULFeeZVaGnJlf6ykmu-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126529753447-h3khlel1ecf5gn2e0gfb1cp7gjbag7nn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "126529753447-bd0nqpq7kogp8lcv1qreqtkktrr7fvm7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yekola"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

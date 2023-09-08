@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:yekola/common/AddNewTask.dart';
+import 'package:yekola/widget/cardTodoWidget.dart';
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -116,7 +117,12 @@ class _MyHomePageState extends State<HomePage> {
                           'Ajouter Task',
                         ))
                   ],
-                )
+                ),
+                Gap(22),
+                ListView.builder(
+                    itemCount: 4,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) => CardTodoWidget())
               ],
             )),
       ),
