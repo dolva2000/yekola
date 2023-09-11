@@ -100,7 +100,9 @@ class _MyHomePageState extends State<HomePage> {
                 ListView.builder(
                     itemCount: 4,
                     shrinkWrap: true,
-                    itemBuilder: (context, index) => CardTodoWidget())
+                    itemBuilder: (context, index) => CardTodoWidget(
+                          getIndex: 1,
+                        ))
               ],
             )),
       ),

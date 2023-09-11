@@ -155,7 +155,11 @@ class AddNewTask extends ConsumerWidget {
                         category: category,
                         timeTsak: ref.read(timeProvider),
                         dateTsak: ref.read(dateProvider)));
-                    print('saving');
+
+                    titleController.clear();
+                    descriptionController.clear();
+                    ref.read(radioProvider.notifier).update((state) => 0);
+                    Navigator.pop(context);
                   },
                   child: Text('Confirmer'),
                 )),
