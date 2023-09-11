@@ -17,7 +17,7 @@ class CardTodoWidget extends ConsumerWidget {
               child: Text('data'),
             ),
         error: (error, StackTrace) => Center(
-              child: Text('error'),
+              child: Text(StackTrace.toString()),
             ),
         loading: () => Center(
               child: CircularProgressIndicator(),
