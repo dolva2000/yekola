@@ -1,10 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:yekola/const/style.dart';
+import 'package:yekola/models/todo_app.dart';
 import 'package:yekola/provider/dateTimeProvider.dart';
 import 'package:yekola/provider/radioProvider.dart';
+import 'package:yekola/provider/services_provider.dart';
 import 'package:yekola/widget/dateTimeWidget.dart';
 import 'package:yekola/widget/radiowidget.dart';
 import 'package:yekola/widget/textfieldwidget.dart';
@@ -16,6 +19,8 @@ class AddNewTask extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final titleController = TextEditingController();
+    final descriptionController = TextEditingController();
     final dateProvi = ref.watch(dateProvider);
     final timeProvi = ref.watch(timeProvider);
     return SingleChildScrollView(
@@ -45,11 +50,13 @@ class AddNewTask extends ConsumerWidget {
             TextfielWidget(
               maxLine: 1,
               hintText: 'Ajouter le titre de votre note',
+              txtController: titleController,
             ),
             Gap(33),
             Text('Descrition', style: Appstyle.headingStyle),
             Gap(6),
             TextfielWidget(
+              txtController: descriptionController,
               maxLine: 6,
               hintText: 'Ajouter la descrition',
             ),
@@ -132,7 +139,24 @@ class AddNewTask extends ConsumerWidget {
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
-                  onPressed: () {},
+                  onPressed: () {
+                    final getRadio = ref.read(radioProvider);
+                    String category = '';
+                    if (getRadio == 1) {
+                      category = 'learnig';
+                    } else if (getRadio == 2) {
+                      category = 'general';
+                    } else {
+                      category = 'element';
+                    }
+                    ref.read(serviceProvider).addNeswTask(TodoModel(
+                        titleTask: titleController.text,
+                        descTask: descriptionController.text,
+                        category: category,
+                        timeTsak: ref.read(timeProvider),
+                        dateTsak: ref.read(dateProvider)));
+                    print('saving');
+                  },
                   child: Text('Confirmer'),
                 )),
                 Gap(17),
